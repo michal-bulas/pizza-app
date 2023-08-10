@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 import Dropdown from './UI/Dropdown';
 import Logo from './UI/Logo';
@@ -8,21 +9,36 @@ const Header = () => {
 
 	return (
 		<header
-			className={`${heightClass} w-full bg-white flex justify-between items-center px-4 fixed top-0 ease-linear duration-200 shadow-md`}
+			className={`${heightClass} w-full bg-white flex justify-between items-center px-2 sticky top-0 ease-linear duration-200 shadow-md mb-10`}
 		>
-			<div className='flex'>
+			<Link
+				to='/'
+				className='flex mr-1'
+			>
 				<Logo size={scrollPosition > 120 ? 7 : 9} />
 				<h1 className='font-extrabold text-2xl self-center'>
 					Lignumhard pizza
 				</h1>
-			</div>
+			</Link>
 
-			<Dropdown />
-			<div className='hidden sm:flex font-bold space-x-3 '>
-				<p>Pizzas</p>
-				<p>Ingredients</p>
-				<p>Actions</p>
-			</div>
+			<nav>
+				<Dropdown
+					title='Menu'
+					hidden={true}
+					listItems={['pizzas', 'ingredients', 'actions']}
+				/>
+				<ul className='hidden sm:flex font-bold space-x-3 '>
+					<li>
+						<Link to='/pizzas'>Pizzas</Link>
+					</li>
+					<li>
+						<Link to='/ingredients'>Ingredients</Link>
+					</li>
+					<li>
+						<Link to='/actions'>Actions</Link>
+					</li>
+				</ul>
+			</nav>
 		</header>
 	);
 };
