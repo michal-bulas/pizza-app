@@ -22,7 +22,10 @@ const Dropdown: React.FC<{
 			{isOpen && (
 				<ul className='bg-gray-200 absolute top-20 flex flex-col items-start rounded-lg p-2 w-full'>
 					{listItems.map((item) => (
-						<Link to={`/${item}`}>
+						<Link
+							to={`/${item}`}
+							className='w-full'
+						>
 							<li
 								key={item}
 								className='dd-item capitalize'

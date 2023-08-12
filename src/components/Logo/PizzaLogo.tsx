@@ -1,4 +1,4 @@
-const Logo: React.FC<{ size?: number }> = ({ size = 9 }) => {
+const PizzaLogo: React.FC<{ size?: number }> = ({ size = 9 }) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
@@ -42,4 +42,4 @@ const Logo: React.FC<{ size?: number }> = ({ size = 9 }) => {
 	);
 };
 
-export default Logo;
+export default PizzaLogo;
