@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollPosition } from '../hooks/useScrollPosition';
 import Dropdown from './UI/Dropdown';
-import Logo from './UI/Logo';
+import PizzaLogo from './Logo/PizzaLogo';
 
 const Header = () => {
 	const scrollPosition = useScrollPosition();
@@ -15,7 +15,7 @@ const Header = () => {
 				to='/'
 				className='flex mr-1'
 			>
-				<Logo size={scrollPosition > 120 ? 7 : 9} />
+				<PizzaLogo size={scrollPosition > 120 ? 7 : 9} />
 				<h1 className='font-extrabold text-2xl self-center'>
 					Lignumhard pizza
 				</h1>
