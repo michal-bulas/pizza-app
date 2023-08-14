@@ -4,6 +4,7 @@ import Card from './UI/Card';
 import LoadingSpinner from './UI/LoadingSpinner';
 import LogoMapComponent from './Logo/LogoMap';
 import { CollectionKeys } from '../types/CollectionKeys';
+import ErrorPage from './ErrorComponent';
 
 interface collectionItem {
 	_id: string;
@@ -14,9 +15,11 @@ interface collectionItem {
 
 const ItemsGrid: React.FC = () => {
 	const { collection = 'pizzas' } = useParams<{ collection: CollectionKeys }>();
-	const { data, isLoading } = useCollection(collection);
+	const { data, error, isLoading } = useCollection(collection);
 
 	if (isLoading) return <LoadingSpinner />;
+
+	if (error) return <ErrorPage />;
 
 	return (
 		<>
