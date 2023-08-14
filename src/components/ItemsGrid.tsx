@@ -2,9 +2,9 @@ import { Link, useParams } from 'react-router-dom';
 import { useCollection } from '../hooks/fetchHooks';
 import Card from './UI/Card';
 import LoadingSpinner from './UI/LoadingSpinner';
-import LogoMapComponent from './Logo/LogoMap';
+import LogoMapComponent from './Logo/LogoMapComponent';
 import { CollectionKeys } from '../types/CollectionKeys';
-import ErrorPage from './ErrorComponent';
+import ErrorComponent from './ErrorComponent';
 
 interface collectionItem {
 	_id: string;
@@ -19,7 +19,7 @@ const ItemsGrid: React.FC = () => {
 
 	if (isLoading) return <LoadingSpinner />;
 
-	if (error) return <ErrorPage />;
+	if (error) return <ErrorComponent />;
 
 	return (
 		<>
@@ -29,10 +29,14 @@ const ItemsGrid: React.FC = () => {
 			<div className='grid grid-flow-row-dense gap-5 px-14 md:px-16 lg:px-20 md:grid-cols-2 lg:grid-cols-3 '>
 				{data[collection].map((item: collectionItem) => (
 					<Link
+						data-testid='item-link'
 						key={item._id}
 						to={`/${collection}/${item._id}`}
 					>
-						<Card className='flex flex-col items-center hover:shadow-2xl hover:cursor-pointer space-y-6'>
+						<Card
+							data-testid='item-card'
+							className='flex flex-col items-center hover:shadow-2xl hover:cursor-pointer space-y-6'
+						>
 							<LogoMapComponent collection={collection} />
 
 							<p className='text-lg'>{item.name}</p>

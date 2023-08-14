@@ -9,6 +9,7 @@ const Header = () => {
 
 	return (
 		<header
+			role='banner'
 			className={`${heightClass} w-full bg-white flex justify-between items-center px-2 sticky top-0 ease-linear duration-200 shadow-md mb-10`}
 		>
 			<Link

@@ -1,6 +1,7 @@
 const IngredientLogo: React.FC<{ size?: number }> = ({ size = 9 }) => {
 	return (
 		<svg
+			data-testid='IngredientLogo'
 			xmlns='http://www.w3.org/2000/svg'
 			width={`${size * 8}pt`}
 			height={`${size * 8}pt`}

@@ -1,21 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const fetchCollection = async (collectionName: string) => {
+export const fetchCollection = async (collectionName: string) => {
 	const { data } = await axios.get(
 		`http://localhost:9090/${collectionName}/get`
 	);
 	return data;
 };
 
-const fetchDocument = async (collectionName: string, documentId: string) => {
+export const fetchDocument = async (
+	collectionName: string,
+	documentId: string
+) => {
 	const { data } = await axios.get(
 		`http://localhost:9090/${collectionName}/get/${documentId}`
 	);
 	return data;
 };
 
-const fetchRelation = async (
+export const fetchRelation = async (
 	collectionName: string,
 	itemType: string,
 	itemId: string

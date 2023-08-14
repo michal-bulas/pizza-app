@@ -20,7 +20,10 @@ const Dropdown: React.FC<{
 				{!isOpen ? '↓' : '↑'}
 			</button>
 			{isOpen && (
-				<ul className='bg-gray-200 absolute top-20 flex flex-col items-start rounded-lg p-2 w-full'>
+				<ul
+					data-testid='dropdown-items'
+					className='bg-gray-200 absolute top-20 flex flex-col items-start rounded-lg p-2 w-full'
+				>
 					{listItems.map((item) => (
 						<Link
 							to={`/${item}`}
