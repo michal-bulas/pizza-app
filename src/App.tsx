@@ -1,7 +1,7 @@
-import ActionDetails from './components/Details/ActionDetail';
+import ActionDetails from './components/Details/ActionDetails';
 import IngredientDetails from './components/Details/IngredientDetails';
 import PizzaDetails from './components/Details/PizzaDetails';
-import ErrorPage from './components/ErrorComponent';
+import ErrorComponent from './components/ErrorComponent';
 import Header from './components/Header';
 import ItemsGrid from './components/ItemsGrid';
 import { Route, Routes } from 'react-router-dom';
@@ -30,7 +30,7 @@ function App() {
 					/>
 					<Route
 						path='*'
-						element={<ErrorPage />}
+						element={<ErrorComponent />}
 					/>
 				</Routes>
 			</main>

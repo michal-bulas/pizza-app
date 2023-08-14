@@ -2,9 +2,9 @@ import { useParams } from 'react-router-dom';
 import PizzaLogo from '../Logo/PizzaLogo';
 import List from '../UI/List';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import ErrorPage from '../ErrorComponent';
 import { useDocument } from '../../hooks/fetchHooks';
 import Card from '../UI/Card';
+import ErrorComponent from '../ErrorComponent';
 
 const PizzaDetails = () => {
 	const { document = '' } = useParams<{
@@ -15,7 +15,7 @@ const PizzaDetails = () => {
 
 	if (isLoading) return <LoadingSpinner />;
 
-	if (error) return <ErrorPage />;
+	if (error) return <ErrorComponent />;
 
 	return (
 		<div className='px-10 md:px-14 lg:px-26 mt-10'>
