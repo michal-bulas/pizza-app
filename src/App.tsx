@@ -1,4 +1,7 @@
-import Details from './components/Details';
+import ActionDetails from './components/Details/ActionDetail';
+import IngredientDetails from './components/Details/IngredientDetails';
+import PizzaDetails from './components/Details/PizzaDetails';
+import ErrorPage from './components/ErrorComponent';
 import Header from './components/Header';
 import ItemsGrid from './components/ItemsGrid';
 import { Route, Routes } from 'react-router-dom';
@@ -14,8 +17,20 @@ function App() {
 						element={<ItemsGrid />}
 					/>
 					<Route
-						path='/:collection/:document'
-						element={<Details />}
+						path='/pizzas/:document'
+						element={<PizzaDetails />}
+					/>
+					<Route
+						path='/actions/:document'
+						element={<ActionDetails />}
+					/>
+					<Route
+						path='/ingredients/:document'
+						element={<IngredientDetails />}
+					/>
+					<Route
+						path='*'
+						element={<ErrorPage />}
 					/>
 				</Routes>
 			</main>

@@ -1,19 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-export const fetchCollection = async (collectionName: string) => {
+const fetchCollection = async (collectionName: string) => {
 	const { data } = await axios.get(
 		`http://localhost:9090/${collectionName}/get`
 	);
 	return data;
 };
 
-export const fetchDocument = async (
-	collectionName: string,
-	documentId: string
-) => {
+const fetchDocument = async (collectionName: string, documentId: string) => {
 	const { data } = await axios.get(
 		`http://localhost:9090/${collectionName}/get/${documentId}`
+	);
+	return data;
+};
+
+const fetchRelation = async (
+	collectionName: string,
+	itemType: string,
+	itemId: string
+) => {
+	const { data } = await axios.get(
+		`http://localhost:9090/${collectionName}/get/by-${itemType}/${itemId}`
 	);
 	return data;
 };
@@ -31,3 +39,14 @@ export const useDocument = (collectionName: string, documentId: string) => {
 		queryFn: () => fetchDocument(collectionName, documentId),
 	});
 };
+
+export function useRelationByItem(
+	collectionName: string,
+	itemType: string,
+	itemId: string
+) {
+	return useQuery({
+		queryKey: ['relationByItem', collectionName, itemId],
+		queryFn: () => fetchRelation(collectionName, itemType, itemId),
+	});
+}

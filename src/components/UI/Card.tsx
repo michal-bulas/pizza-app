@@ -5,7 +5,7 @@ const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({
 	children,
 	className = '',
 }) => {
-	const c = twMerge('p-4 m-5 shadow-md rounded-xl bg-white', className);
+	const c = twMerge('p-6 m-5 shadow-md rounded-xl bg-white', className);
 	return <div className={c}>{children}</div>;
 };
 
